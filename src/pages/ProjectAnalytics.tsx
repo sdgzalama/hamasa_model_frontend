@@ -184,7 +184,7 @@ function ThemeCoverage({ themes }: any) {
 
 function InsightPanel({ insight, loading }: any) {
   return (
-    <div style={styles.insightPanel}>
+    <div>
       <h2>AI Insights</h2>
 
       {loading ? (

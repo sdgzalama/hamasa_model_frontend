@@ -31,6 +31,7 @@ export default function Dashboard() {
     done: 0,
     running: false,
   });
+  const API = "https://hamasa-analytics-model.onrender.com";
 
   // --------------------------------------
   // AUTO-REFRESH DASHBOARD EVERY 5 SECONDS
@@ -38,8 +39,11 @@ export default function Dashboard() {
   useEffect(() => {
     async function load() {
       try {
-        const statsRes = await fetch("http://127.0.0.1:8000/dashboard/stats").then(r => r.json());
-        const itemsRes = await fetch("http://127.0.0.1:8000/media/latest/10").then(r => r.json());
+        
+
+        const statsRes = await fetch(`${API}/dashboard/stats`).then(r => r.json());
+        const itemsRes = await fetch(`${API}/media/latest/10`).then(r => r.json());
+
 
         setStats(statsRes);
         setLatestItems(itemsRes);
@@ -65,13 +69,14 @@ export default function Dashboard() {
   async function handleProcessAll() {
     setProcessing(true);
 
-    await fetch("http://127.0.0.1:8000/media/process/all", {
+      await fetch(`${API}/media/process/all`, {
+
       method: "POST",
     });
 
     // POLL PROGRESS
     const interval = setInterval(async () => {
-      const res = await fetch("http://127.0.0.1:8000/media/process/progress");
+      const res = await fetch(`${API}/media/process/progress`);
       const data = await res.json();
 
       setProgress(data);

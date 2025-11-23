@@ -6,7 +6,7 @@ import {
   FiUserPlus,
   FiFolderPlus,
   FiTool,
-  FiPaperclip,
+  
 } from "react-icons/fi";
 
 export default function Sidebar() {
