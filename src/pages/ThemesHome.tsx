@@ -7,7 +7,7 @@ export default function ThemesHome() {
 
   const load = async () => {
     try {
-      const res = await fetch("http://127.0.0.1:8000/projects");
+      const res = await fetch("https://hamasa-analytics-model.onrender.com/projects");
       const json = await res.json();
       setProjects(json);
     } catch (err) {

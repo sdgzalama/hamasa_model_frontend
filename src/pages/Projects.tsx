@@ -31,7 +31,7 @@ export default function Projects() {
 
   // Fetch all projects (each project already includes its own media sources)
   const loadProjects = async () => {
-    const res = await fetch("http://127.0.0.1:8000/projects");
+    const res = await fetch("https://hamasa-analytics-model.onrender.com/projects");
     const data = await res.json();
     setProjects(data);
   };
@@ -55,7 +55,7 @@ export default function Projects() {
 
     try {
       const res = await fetch(
-        `http://127.0.0.1:8000/scrape/rss?project_id=${projectId}&source_id=${sourceId}`,
+        `https://hamasa-analytics-model.onrender.com/scrape/rss?project_id=${projectId}&source_id=${sourceId}`,
         { method: "POST" }
       );
 

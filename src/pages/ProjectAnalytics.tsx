@@ -16,7 +16,7 @@ export default function ProjectAnalytics() {
   // -----------------------------
   const loadAnalytics = async () => {
     try {
-      const res = await fetch(`http://127.0.0.1:8000/project/${id}/dashboard`);
+      const res = await fetch(`https://hamasa-analytics-model.onrender.com/project/${id}/dashboard`);
       const json = await res.json();
       setData(json);
     } finally {
@@ -30,7 +30,7 @@ export default function ProjectAnalytics() {
   const loadInsights = async () => {
     try {
       const res = await fetch(
-        `http://127.0.0.1:8000/project/${id}/insights/latest`
+        `https://hamasa-analytics-model.onrender.com/project/${id}/insights/latest`
       );
 
       if (!res.ok) return setInsight(null);
@@ -46,7 +46,7 @@ export default function ProjectAnalytics() {
   // GENERATE INSIGHTS
   // -----------------------------
   const generateInsights = async () => {
-    await fetch(`http://127.0.0.1:8000/project/${id}/insights/generate`, {
+    await fetch(`https://hamasa-analytics-model.onrender.com/project/${id}/insights/generate`, {
       method: "POST",
     });
 

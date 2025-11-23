@@ -6,7 +6,7 @@ export default function CreateClient() {
   const [email, setEmail] = useState("");
 
   const submitForm = async () => {
-    await fetch("http://127.0.0.1:8000/clients/", {
+    await fetch("https://hamasa-analytics-model.onrender.com/clients/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, contact_email: email }),

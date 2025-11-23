@@ -20,7 +20,7 @@ export default function MediaItems() {
   };
 
   const loadItems = async () => {
-    const res = await fetch("http://127.0.0.1:8000/media/");
+    const res = await fetch("https://hamasa-analytics-model.onrender.com/media/");
     const json = await res.json();
     setItems(json);
     updateProgress(json);
@@ -37,7 +37,7 @@ export default function MediaItems() {
 
     try {
       const res = await fetch(
-        `http://127.0.0.1:8000/process/media-item/${mediaId}`,
+        `https://hamasa-analytics-model.onrender.com/process/media-item/${mediaId}`,
         { method: "POST" }
       );
 

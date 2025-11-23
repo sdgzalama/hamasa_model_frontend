@@ -11,7 +11,7 @@ export default function Themes() {
 
   // Load all thematic areas for this project
   const loadThemes = async () => {
-    const res = await fetch(`http://127.0.0.1:8000/project/${id}/thematics`);
+    const res = await fetch(`https://hamasa-analytics-model.onrender.com/project/${id}/thematics`);
     const json = await res.json();
     setProject(json.project);
     setThemes(json.thematic_areas);
@@ -25,7 +25,7 @@ export default function Themes() {
   const addTheme = async () => {
     if (!name.trim()) return alert("Enter a theme name");
 
-    await fetch(`http://127.0.0.1:8000/project/${id}/thematics`, {
+    await fetch(`https://hamasa-analytics-model.onrender.com/project/${id}/thematics`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, description: desc }),
@@ -41,7 +41,7 @@ export default function Themes() {
     const ok = confirm("Delete this theme?");
     if (!ok) return;
 
-    await fetch(`http://127.0.0.1:8000/project/thematic/${themeId}`, {
+    await fetch(`https://hamasa-analytics-model.onrender.com/project/thematic/${themeId}`, {
       method: "DELETE",
     });
 

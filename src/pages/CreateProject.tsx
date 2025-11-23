@@ -18,12 +18,12 @@ export default function CreateProject() {
   // Load clients + media sources
   // -----------------------------------------
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/clients/")
+    fetch("https://hamasa-analytics-model.onrender.com/clients/")
       .then((res) => res.json())
       .then((data) => setClients(data))
       .catch(() => setClients([]));
 
-    fetch("http://127.0.0.1:8000/media-sources/")
+    fetch("https://hamasa-analytics-model.onrender.com/media-sources/")
       .then((res) => res.json())
       .then((data) => setSources(data))
       .catch(() => setSources([]));
@@ -41,7 +41,7 @@ export default function CreateProject() {
     setLoading(true);
     setMessage("⏳ Creating project… please wait (AI is generating thematic areas)");
 
-    const res = await fetch("http://127.0.0.1:8000/projects/", {
+    const res = await fetch("https://hamasa-analytics-model.onrender.com/projects/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

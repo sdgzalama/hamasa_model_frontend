@@ -17,7 +17,7 @@ export default function CreateMediaSource() {
     setMessage("⏳ Saving...");
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/media-sources/", {
+      const res = await fetch("https://hamasa-analytics-model.onrender.com/media-sources/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -28,12 +28,14 @@ export default function CreateMediaSource() {
 
       const json = await res.json();
 
-      if (res.ok) {
+      // IMPORTANT FIX:
+      // Your API always returns HTTP 200, so we must check json.status
+      if (json?.status === "success") {
         setMessage("✅ Media Source Added Successfully!");
         setName("");
         setUrl("");
       } else {
-        setMessage(`❌ Failed: ${json?.detail || "Unknown error"}`);
+        setMessage(`❌ Failed: ${json?.message || "Unknown error"}`);
       }
     } catch (err) {
       setMessage("❌ Network Error");

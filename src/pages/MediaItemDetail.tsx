@@ -13,7 +13,7 @@ export default function MediaItemDetail() {
 
   const loadDetails = async () => {
     try {
-      const res = await fetch(`http://127.0.0.1:8000/media/${id}`);
+      const res = await fetch(`https://hamasa-analytics-model.onrender.com/media/${id}`);
       const json = await res.json();
       setData(json);
     } catch (err) {
